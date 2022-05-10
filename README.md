@@ -1,0 +1,2 @@
+# UAb LEI OOP
+Este repositório contem o código fonte criado para a Unidade Curricular de Programação Orientada por Objetos, parte da Licenciatura de Engenharia Informática da Universidade Aberta em Portugal.
