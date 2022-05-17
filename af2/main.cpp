@@ -38,7 +38,7 @@ void ImprimeListagem(aluno alunos[], int num_alunos) {
         printf("%s \t", alunos[contador].nome.c_str());
         printf("%d \t\t", alunos[contador].num_matricula);
         printf("%s \t", alunos[contador].curso.c_str());
-        printf("%2f \t\n", alunos[contador].nota_media);
+        printf("%2.1f \t\n", alunos[contador].nota_media);
     }
 }
 
@@ -60,9 +60,9 @@ void ImprimeNotas(aluno alunos[], int num_alunos) {
 
     printf("\nRESUMO DAS NOTAS\n");
     printf("============================================================\n");
-    printf("Nota mínima: %2f\n", notaMinima);
-    printf("Nota máxima: %2f\n", notaMaxima);
-    printf("Média Global: %2f\n", (somaNotas / (float) num_alunos));
+    printf("Nota mínima: %2.1f\n", notaMinima);
+    printf("Nota máxima: %2.1f\n", notaMaxima);
+    printf("Média Global: %2.1f\n", (somaNotas / (float) num_alunos));
 }
 
 int main() {
