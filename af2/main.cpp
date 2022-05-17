@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -28,34 +29,34 @@ aluno LerAluno() {
     return temp;
 }
 
-void ImprimeListagem(aluno alunos[], int num_alunos) {
-    int contador;
+void ImprimeListagem(aluno *alunos, int num_alunos) {
+    cout << "LISTAGEM DE ALUNOS" << endl;
+    cout << "===========================================================" << endl;
+    cout << "Nome\t" << "Matricula\t" << "Curso\t" << "Nota Média\t" << endl;
 
-    printf("LISTAGEM DE ALUNOS\n");
-    printf("============================================================\n");
-    printf("Nome\tMatricula\tCurso\tNota Média\t\n");
-    for (contador = 0; contador < num_alunos; contador++) {
-        printf("%s \t", alunos[contador].nome.c_str());
-        printf("%d \t\t", alunos[contador].num_matricula);
-        printf("%s \t", alunos[contador].curso.c_str());
-        printf("%2.1f \t\n", alunos[contador].nota_media);
+    for (int i = 0; i < num_alunos; i++) {
+        cout << alunos[i].nome << "\t";
+        cout << alunos[i].num_matricula << "\t";
+        cout << alunos[i].curso << "\t";
+        cout << setprecision(1) << alunos[i].nota_media << "\t" << endl;
     }
-    printf("\n");
+    cout << endl;
 }
 
-void ImprimeFiltrados(aluno * alunos, int num_alunos, string nome_curso) {
-    printf("LISTAGEM DE ALUNOS DO CURSO %s\n", nome_curso.c_str());
-    printf("============================================================\n");
-    printf("Nome\tMatricula\tCurso\tNota Média\t\n");
+void ImprimeFiltrados(aluno *alunos, int num_alunos, string nome_curso) {
+    cout << "LISTAGEM DE ALUNOS DO CURSO " << nome_curso << endl;
+    cout << "============================================================" << endl;
+    cout << "Nome\t" << "Matricula\t" << "Curso\t" << "Nota Média\t" << endl;
+
     for (int i = 0; i < num_alunos; i++) {
         if (alunos[i].curso == nome_curso) {
-            printf("%s \t", alunos[i].nome.c_str());
-            printf("%d \t\t", alunos[i].num_matricula);
-            printf("%s \t", alunos[i].curso.c_str());
-            printf("%2.1f \t\n", alunos[i].nota_media);
+            cout << alunos[i].nome << "\t";
+            cout << alunos[i].num_matricula << "\t";
+            cout << alunos[i].curso << "\t";
+            cout << setprecision(2) << alunos[i].nota_media << "\t" << endl;
         }
     }
-    printf("\n");
+    cout << endl;
 }
 
 void ImprimeNotas(aluno alunos[], int num_alunos) {
@@ -74,18 +75,18 @@ void ImprimeNotas(aluno alunos[], int num_alunos) {
         }
     }
 
-    printf("RESUMO DAS NOTAS\n");
-    printf("============================================================\n");
-    printf("Nota mínima: %2.1f\n", notaMinima);
-    printf("Nota máxima: %2.1f\n", notaMaxima);
-    printf("Média Global: %2.1f\n", (somaNotas / (float) num_alunos));
-    printf("\n");
+    cout << "RESUMO DAS NOTAS" << endl;
+    cout << "============================================================" << endl;
+    cout << "Nota mínima: " << setprecision(2) << notaMinima << endl;
+    cout << "Nota máxima: " << setprecision(2) << notaMaxima << endl;
+    cout << "Média Global: " << setprecision(2) << (somaNotas / (float) num_alunos) << endl;
+    cout << endl;
 }
 
 int main() {
     int num_alunos = 0;
 
-    cout << "Quantos alunos? " << endl;
+    cout << "Quantos alunos? ";
     cin >> num_alunos;
 
     aluno alunos[num_alunos];
