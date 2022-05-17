@@ -62,7 +62,7 @@ void ImprimeNotas(aluno alunos[], int num_alunos) {
     printf("============================================================\n");
     printf("Nota mínima: %2f\n", notaMinima);
     printf("Nota máxima: %2f\n", notaMaxima);
-    printf("Média Global: %2f\n", (somaNotas / num_alunos));
+    printf("Média Global: %2f\n", (somaNotas / (float) num_alunos));
 }
 
 int main() {
