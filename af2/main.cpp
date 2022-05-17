@@ -7,6 +7,11 @@ struct aluno {
     int num_matricula;
     string curso;
     float nota_media;
+
+    aluno() {
+        num_matricula = 0;
+        nota_media = 0.0f;
+    }
 };
 
 aluno LerAluno() {
@@ -77,6 +82,6 @@ int main() {
 
     ImprimeListagem(alunos, num_alunos);
     ImprimeNotas(alunos, num_alunos);
-    
+
     return 0;
 }
