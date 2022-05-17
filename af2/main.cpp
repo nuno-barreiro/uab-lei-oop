@@ -23,7 +23,7 @@ aluno LerAluno() {
     return temp;
 }
 
-void Imprime(aluno alunos[], int num_alunos) {
+void ImprimeListagem(aluno alunos[], int num_alunos) {
     int contador;
 
     printf("LISTAGEM DE ALUNOS\n");
@@ -37,6 +37,29 @@ void Imprime(aluno alunos[], int num_alunos) {
     }
 }
 
+void ImprimeNotas(aluno alunos[], int num_alunos) {
+    int contador;
+
+    float notaMaxima = alunos[0].nota_media, notaMinima = alunos[0].nota_media, somaNotas = alunos[0].nota_media;
+    if (num_alunos > 1) {
+        for (contador = 1; contador < num_alunos; contador++) {
+            somaNotas += alunos[contador].nota_media;
+            if (alunos[contador].nota_media > notaMaxima) {
+                notaMaxima = alunos[contador].nota_media;
+            }
+            if (alunos[contador].nota_media < notaMinima) {
+                notaMinima = alunos[contador].nota_media;
+            }
+        }
+    }
+
+    printf("\nRESUMO DAS NOTAS\n");
+    printf("============================================================\n");
+    printf("Nota mínima: %2f\n", notaMinima);
+    printf("Nota máxima: %2f\n", notaMaxima);
+    printf("Média Global: %2f\n", (somaNotas / num_alunos));
+}
+
 int main() {
     int num_alunos = 0;
 
@@ -47,12 +70,13 @@ int main() {
     int contador;
 
     for (contador = 0; contador < num_alunos; contador++) {
-        cout << "Dados do Aluno " << contador << endl;
+        cout << "Dados do Aluno " << contador + 1 << endl;
         cout << "======================================================" << endl;
         alunos[contador] = LerAluno();
     }
 
-    Imprime(alunos, num_alunos);
-
+    ImprimeListagem(alunos, num_alunos);
+    ImprimeNotas(alunos, num_alunos);
+    
     return 0;
 }
