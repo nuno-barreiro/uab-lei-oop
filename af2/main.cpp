@@ -40,6 +40,22 @@ void ImprimeListagem(aluno alunos[], int num_alunos) {
         printf("%s \t", alunos[contador].curso.c_str());
         printf("%2.1f \t\n", alunos[contador].nota_media);
     }
+    printf("\n");
+}
+
+void ImprimeFiltrados(aluno * alunos, int num_alunos, string nome_curso) {
+    printf("LISTAGEM DE ALUNOS DO CURSO %s\n", nome_curso.c_str());
+    printf("============================================================\n");
+    printf("Nome\tMatricula\tCurso\tNota Média\t\n");
+    for (int i = 0; i < num_alunos; i++) {
+        if (alunos[i].curso == nome_curso) {
+            printf("%s \t", alunos[i].nome.c_str());
+            printf("%d \t\t", alunos[i].num_matricula);
+            printf("%s \t", alunos[i].curso.c_str());
+            printf("%2.1f \t\n", alunos[i].nota_media);
+        }
+    }
+    printf("\n");
 }
 
 void ImprimeNotas(aluno alunos[], int num_alunos) {
@@ -58,11 +74,12 @@ void ImprimeNotas(aluno alunos[], int num_alunos) {
         }
     }
 
-    printf("\nRESUMO DAS NOTAS\n");
+    printf("RESUMO DAS NOTAS\n");
     printf("============================================================\n");
     printf("Nota mínima: %2.1f\n", notaMinima);
     printf("Nota máxima: %2.1f\n", notaMaxima);
     printf("Média Global: %2.1f\n", (somaNotas / (float) num_alunos));
+    printf("\n");
 }
 
 int main() {
@@ -81,6 +98,7 @@ int main() {
     }
 
     ImprimeListagem(alunos, num_alunos);
+    ImprimeFiltrados(alunos, num_alunos, alunos[0].curso);
     ImprimeNotas(alunos, num_alunos);
 
     return 0;
